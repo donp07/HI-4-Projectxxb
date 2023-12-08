@@ -1,0 +1,9 @@
+<!-- templates/glucose_readings.html -->
+{% extends 'base/base.html' %}
+
+{% block title %}Glucose Readings Graph{% endblock title %}
+
+{% block content %}
+    <h1>Glucose Readings Graph</h1>
+    <img src="{% url 'glucose_graph' %}" alt="Glucose Readings Graph">
+{% endblock content %}

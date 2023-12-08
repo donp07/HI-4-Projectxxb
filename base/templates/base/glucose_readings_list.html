@@ -1,0 +1,25 @@
+<!-- templates/glucose_readings_list.html -->
+{% extends 'base/base.html' %}
+
+{% block title %}Glucose Readings{% endblock title %}
+
+{% block content %}
+    <h1>Glucose Readings</h1>
+    <ul>
+        {% for reading in readings %}
+        <li>{{ reading.date_time }}: {{ reading.reading }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="reading" placeholder="Glucose reading">
+        <input type="datetime-local" name="date_time" required>
+        <button type="submit">Add reading</button>
+    </form>
+    <a href="{% url 'glucose_graph' %}">
+        <button>View Readings Graph</button>
+    </a>
+{% endblock content %}
+
+    
